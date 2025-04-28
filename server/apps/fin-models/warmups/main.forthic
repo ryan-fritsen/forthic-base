@@ -1,0 +1,5 @@
+["test1" "test2"] VARIABLES
+
+: REC-AT (test1 !) [["testKey"  "testValue"]] REC test1 @ REC@ ; 
+
+: MAIN-PAGE REC-AT;

@@ -1,0 +1,19 @@
+#
+# Practice using the new Main Page convention
+#
+["ui"] USE-MODULES
+
+: CSS   '''
+h3 {
+    color: blue;
+}
+''';
+
+: UI-FORTHIC   '''
+: H1             "'h3'" Element;
+: HOME-ELEMENT   H1 "Forthic React Smoke Test" <CONTENT;
+: HOME-ROUTE   "/" HOME-ELEMENT Route;
+: MAIN-ROUTER   [HOME-ROUTE] Router;
+''';
+
+: MAIN-PAGE   ui.FORTHIC-REACT-v1 CSS ui.<CSS  UI-FORTHIC ui.<FORTHIC;

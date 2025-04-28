@@ -1,0 +1,24 @@
+["cache"] USE-MODULES
+
+# This stores the array of strings under the "greek" key in the cache.
+# You can examine the cache by looking at the `.cache` file in the
+# example app's directory
+["Alpha" "Beta" "Gamma"] "greek" cache.CACHE!
+["Phi" "Delta" "Epsilon"] "fin" cache.CACHE!
+
+# This returns the value of the cached content
+: GREEK   "greek" cache.CACHE@;
+
+# -------------------------------------------
+
+: REC-AT (fin !) ["Phi" "Delta" "Epsilon"] cache.CACHE!;
+
+# ["test1" "test2"] VARIABLES
+
+# : REC-AT (test1 !) [["testKey"  "testValue"]] REC test1 @ REC@ ; 
+
+# : MAIN-PAGE REC-AT;
+
+# -------------------------------------------
+
+: MAIN-PAGE   ["<code>" REC-AT >STR  "</code>"] CONCAT; 

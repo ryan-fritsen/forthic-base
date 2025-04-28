@@ -1,0 +1,78 @@
+
+# This stuff from Linkedin ------------------------
+# ["contexts" "jira" "cache" "org" "jinja" "ratchet" "gsheet" "html"] USE-MODULES
+
+# : BROWSER-DATA [
+#     ["form_admins"            FORM-ADMINS >JSON]
+#     ["ratchet_username"       ratchet.RATCHET-USERNAME >JSON]
+#     ["list_valued_fields"     LIST-VALUED-FIELDS >JSON]
+#     ["jira_host"              jira.HOST >JSON]
+#     ["form_configs"           FORM-CONFIGS >JSON "\n" "\\n" REPLACE]
+# ] REC;
+
+# : BROWSER-FORTHIC   "browser" LOAD-SCREEN  BROWSER-DATA jinja.RENDER;
+
+# : MAIN-DATA   [
+#     ["css"       "css" LOAD-SCREEN]
+#     ["forthic"   BROWSER-FORTHIC html.RUN-FORTHIC.JS html.RENDER]
+#     ["jsx_util"  "jsx-util" LOAD-SCREEN]
+#     ["jsx"       "jsx" LOAD-SCREEN]
+# ] REC;
+
+# : MAIN-TEMPLATE   '''
+# <style>
+#     {{ css }}
+# </style>
+
+# <div id="root"></div>
+
+# {{ forthic }}
+
+# <script type="text/babel">
+#     {{ jsx_util }}
+#     {{ jsx }}
+# </script>
+# ''';
+
+# ## From Browser-Data
+# ["forthic"   BROWSER-FORTHIC html.RUN-FORTHIC.JS html.RENDER]
+# -----------------------------------------------
+
+# This stuff is MINE ------------------------
+["contexts" "jinja" "html"] USE-MODULES
+: MAIN-DATA    [
+    ["basic_html"    "basic_html" LOAD-SCREEN]
+    ["basic_string"  "basic_string" LOAD-SCREEN]
+    ["greeting"      "Hello, world!"]
+] REC;
+
+: MAIN-TEMPLATE   "basic_string" LOAD-SCREEN;
+
+# : MAIN-TEMPLATE   '''
+
+# <!DOCTYPE html>
+# <html>
+# <head>
+#     <title>Simple Page</title>
+# </head>
+# <body>
+#     {{ greeting }}
+# </body>
+# </html>
+
+# ''';
+
+# : MAIN-TEMPLATE '''
+# <!DOCTYPE html>
+# <html>
+# <head>
+#     <title>Simple Page</title>
+# </head>
+# <body>
+#     Hi
+# </body>
+# </html>
+# ''';
+
+: MAIN-PAGE   MAIN-TEMPLATE MAIN-DATA jinja.RENDER;
+# -----------------------------------------------

@@ -1,0 +1,12 @@
+
+
+# Main Page -------------------------------------
+
+: MAIN-TEMPLATE LOAD-SCREEN;
+
+: MAIN-DATA [
+
+]
+
+: MAIN-PAGE    MAIN-TEMPLATE MAIN-DATA jinja.RENDER;
+# -----------------------------------------------

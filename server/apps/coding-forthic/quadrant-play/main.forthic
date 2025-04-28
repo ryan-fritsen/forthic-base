@@ -1,0 +1,17 @@
+["contexts" "jinja" "html"] USE-MODULES
+: MAIN-DATA    [
+    #["html_screen"   "full-html" LOAD-SCREEN]
+    ["style"         "style" LOAD-SCREEN]
+    ["q1_text"            "Quadrant 1 Text"]
+    ["q2_text"            "Quadrant 2 Text"]
+    ["q3_text"            "Quadrant 3 Text"]
+    ["q4_text"            "Quadrant 4 Text"]
+    ["q1_style"           "quadrant-top-left"]
+    ["q2_style"           "quadrant-top-right"]
+    ["q3_style"           "quadrant-bottom-left"]
+    ["q4_style"           "quadrant-bottom-right"]
+] REC;
+
+: MAIN-TEMPLATE   "frame" LOAD-SCREEN;
+
+: MAIN-PAGE   MAIN-TEMPLATE MAIN-DATA jinja.RENDER;

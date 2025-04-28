@@ -1,0 +1,22 @@
+'''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4 Quadrants Split Screen</title>
+  <style>
+    {{ style }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class={{ q1_style }}> {{ q1_text }}</div>
+    <div class="vertical-line"></div>
+    <div class={{ q2_style }}> {{ q2_text }} </div>
+    <div class="horizontal-line"></div>
+    <div class={{ q3_style }}>{{ q3_text }}</div>
+    <div class="vertical-line" style="visibility: hidden;"></div>
+    <div class={{ q4_style }}> {{ q4_text }} </div>
+  </div>
+</body>
+'''

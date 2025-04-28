@@ -1,0 +1,66 @@
+'''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4 Quadrants Split Screen</title>
+  <style>
+   html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      grid-template-rows: 1fr 1px 1fr;
+      height: 100vh;
+      width: 100vw;
+    }
+</html>
+    .vertical-line {
+      grid-row: 1 / span 3;
+      grid-column: 2 / 3;
+      background: #333;
+      width: 1px;
+      height: 100%;
+      justify-self: stretch;
+      align-self: stretch;
+    }
+    .horizontal-line {
+      grid-row: 2 / 3;
+      grid-column: 1 / span 3;
+      background: #333;
+      height: 1px;
+      width: 100%;
+      justify-self: stretch;
+      align-self: stretch;
+    }
+    .quadrant {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      font-family: sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    .top-left { grid-row: 1 / 2; grid-column: 1 / 2; background: #f8f8f8; }
+    .top-right { grid-row: 1 / 2; grid-column: 3 / 4; background: #e0e0e0; }
+    .bottom-left { grid-row: 3 / 4; grid-column: 1 / 2; background: #d0f0ff; }
+    .bottom-right { grid-row: 3 / 4; grid-column: 3 / 4; background: #ffe0e0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="quadrant top-left"> {{ q1 }}</div>
+    <div class="vertical-line"></div>
+    <div class="quadrant top-right"> {{ q2 }} </div>
+    <div class="horizontal-line"></div>
+    <div class="quadrant bottom-left">{{ q3 }}</div>
+    <div class="vertical-line" style="visibility: hidden;"></div>
+    <div class="quadrant bottom-right"> {{ q4 }} </div>
+  </div>
+</body>
+'''
